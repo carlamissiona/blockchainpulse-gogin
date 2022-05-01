@@ -37,7 +37,7 @@ func main() {
 
 
 	r.GET("/api/blochain", func(c *gin.Context) {
-		 c.IndentedJSON(http.StatusOK, albums)
+		 c.IndentedJSON(http.StatusOK, prices)
 	})
 
 
