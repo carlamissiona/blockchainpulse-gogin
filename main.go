@@ -19,14 +19,11 @@ type bcap_price struct {
     Coin_Type string  `json:"coin_type"`
     Price string  `json:"price"`
 }
-
-func init() {
-
-	var prices = []bcap_price{
+var prices = []bcap_price{
     {ID: "1", Name: "Dogge Coin", Coin_Type: "DGC", Price: "56.99"},
     {ID: "2", Name: "Ethereum Coin", Coin_Type: "ETH", Price: "6.5"},
 	}
-}
+ 
 func main() {
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
@@ -37,7 +34,7 @@ func main() {
 
 
 	r.GET("/api/blochain", func(c *gin.Context) {
-		 c.IndentedJSON(http.StatusOK, prices)
+		 c.IndentedJSON(200, prices)
 	})
 
 
