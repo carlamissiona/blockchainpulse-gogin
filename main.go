@@ -36,6 +36,19 @@ func main() {
 	r.GET("/api/blochain", func(c *gin.Context) {
 		 c.IndentedJSON(200, prices)
 	})
+	r.GET("/api/blochain/:id", func(c *gin.Context) {
+			 
+		    id := c.Param("id") 
+
+		    for _, a := range prices {
+		        if a.ID == id {
+		            c.IndentedJSON(200, a)
+		            return
+		        }
+		    }
+		    c.IndentedJSON(500, gin.H{"message": "Server error id not found"})
+	 
+	})
 
 
 	r.Run()
